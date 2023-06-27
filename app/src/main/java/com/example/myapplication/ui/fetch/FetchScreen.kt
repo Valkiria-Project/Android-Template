@@ -14,7 +14,8 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun FetchScreen(
-    onClick: (Long) -> Unit
+    onClick: (Long) -> Unit,
+    deviceAuthClick: () -> Unit
 ) {
     val fetchViewModel = hiltViewModel<FetchViewModel>()
     val uiState = fetchViewModel.uiState
@@ -38,6 +39,12 @@ fun FetchScreen(
             onClick = { fetchViewModel.getMyScreen(false) }
         ) {
             Text(text = "Make successful MyScreen request")
+        }
+
+        Button(
+            onClick = { deviceAuthClick.invoke() }
+        ) {
+            Text(text = "Navigate to device auth")
         }
     }
 }

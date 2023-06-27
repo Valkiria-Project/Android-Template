@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.myapplication.ui.deviceauth.DeviceAuthScreen
 import com.example.myapplication.ui.fetch.FetchScreen
 import com.example.myapplication.ui.myscreen.MyScreen
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -32,6 +33,9 @@ fun ComposeApp(
             FetchScreen(
                 onClick = { identifier ->
                     navController.navigate("${NavigationRoute.MY_SCREEN_UI}/${identifier}")
+                },
+                deviceAuthClick = {
+                    navController.navigate(NavigationRoute.DEVICE_AUTH_SCREEN)
                 }
             )
         }
@@ -51,6 +55,13 @@ fun ComposeApp(
                         )
                     }
                 }
+            )
+        }
+        composable(
+            route = NavigationRoute.DEVICE_AUTH_SCREEN
+        ) {
+            DeviceAuthScreen(
+                onClick = { }
             )
         }
     }
