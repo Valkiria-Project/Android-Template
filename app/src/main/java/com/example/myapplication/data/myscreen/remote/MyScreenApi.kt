@@ -8,4 +8,7 @@ interface MyScreenApi {
 
     @GET("https://run.mocky.io/v3/8f7883cd-ffe6-46ec-9e21-9b183e3aa1ce")
     suspend fun getMyScreen(): Response<MyScreenResponse>
+
+    @GET("sisem-api/v1/screen/deviceAuth")
+    suspend fun getScreen(): Response<Unit>
 }

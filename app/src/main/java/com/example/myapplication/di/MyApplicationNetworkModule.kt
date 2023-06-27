@@ -85,7 +85,7 @@ object MyApplicationNetworkModule {
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://run.mocky.io/v3/")
+            .baseUrl("http://34.123.136.71:8080/")
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
