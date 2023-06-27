@@ -40,7 +40,7 @@ fun BodySection(
                 when (bodyRow) {
                     is CrossSelling -> item {
                         // CrossSelling(...)
-                        var text by remember { mutableStateOf(TextFieldValue("")) }
+                        var text by remember { mutableStateOf(TextFieldValue(text = bodyRow.text)) }
                         TextField(
                             value = text,
                             onValueChange = { newText ->
