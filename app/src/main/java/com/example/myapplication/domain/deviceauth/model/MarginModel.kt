@@ -4,8 +4,9 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class DeviceAuthScreenModel(
-    val headerModel: HeaderModel?,
-    val body: List<BodyRowModel>,
-    val footerModel: FooterModel?
+data class MarginModel(
+    val top: Int,
+    val bottom: Int,
+    val left: Int,
+    val right: Int
 ) : Parcelable

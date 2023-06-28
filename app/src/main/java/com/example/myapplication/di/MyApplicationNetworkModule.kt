@@ -6,6 +6,10 @@ import com.example.myapplication.data.myscreen.remote.model.BodyRowResponse
 import com.example.myapplication.data.myscreen.remote.model.CrossSellingResponse
 import com.example.myapplication.data.myscreen.remote.model.MessageResponse
 import com.example.myapplication.data.myscreen.remote.model.SectionResponse
+import com.example.myapplication.data.remote.model.LabelResponse
+import com.example.myapplication.data.remote.model.TextFieldResponse
+import com.example.myapplication.domain.deviceauth.model.BodyRowTypeModel
+import com.example.myapplication.domain.deviceauth.model.KeyboardType
 import com.example.myapplication.domain.myscreen.model.BodyRowType
 import com.example.myapplication.domain.myscreen.model.ScreenType
 import com.squareup.moshi.Moshi
@@ -23,6 +27,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+import com.example.myapplication.data.remote.model.BodyRowResponse as BodyRowResponse2
+
 @Module
 @InstallIn(SingletonComponent::class)
 object MyApplicationNetworkModule {
@@ -39,10 +45,23 @@ object MyApplicationNetworkModule {
                 .withUnknownFallback(null)
         )
         .add(
+            KeyboardType::class.java, EnumJsonAdapter.create(KeyboardType::class.java)
+                .withUnknownFallback(KeyboardType.TEXT)
+        )
+        .add(
             PolymorphicJsonAdapterFactory.of(BodyRowResponse::class.java, "type")
                 .withSubtype(CrossSellingResponse::class.java, BodyRowType.CROSS_SELLING.name)
                 .withSubtype(MessageResponse::class.java, BodyRowType.MESSAGE.name)
                 .withSubtype(SectionResponse::class.java, BodyRowType.SECTION.name)
+        )
+        .add(
+            BodyRowTypeModel::class.java, EnumJsonAdapter.create(BodyRowTypeModel::class.java)
+                .withUnknownFallback(null)
+        )
+        .add(
+            PolymorphicJsonAdapterFactory.of(BodyRowResponse2::class.java, "type")
+                .withSubtype(LabelResponse::class.java, BodyRowTypeModel.LABEL.name)
+                .withSubtype(TextFieldResponse::class.java, BodyRowTypeModel.TEXT_FIELD.name)
         )
         .add(KotlinJsonAdapterFactory())
         .build()

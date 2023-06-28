@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.myapplication.ui.sections.BodyModelSection
 import com.example.myapplication.ui.sections.FooterModelSection
 import com.example.myapplication.ui.sections.HeaderModelSection
 
@@ -30,6 +31,16 @@ fun DeviceAuthScreen(
             }
         )
 
+        BodyModelSection(
+            body = uiState.deviceAuthScreenModel?.body,
+            modifier = Modifier.constrainAs(body) {
+                top.linkTo(header.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                bottom.linkTo(footer.top)
+            }
+        )
+
         FooterModelSection(
             leftButtonModel = uiState.deviceAuthScreenModel?.footerModel?.leftButtonModel,
             rightButtonModel = uiState.deviceAuthScreenModel?.footerModel?.rightButtonModel,
@@ -40,25 +51,5 @@ fun DeviceAuthScreen(
             },
             onClick = { onClick.invoke() }
         )
-
-        /*BodySection(
-            body = uiState.deviceAuthScreenModel?.body,
-            modifier = Modifier.constrainAs(body) {
-                top.linkTo(header.bottom)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-                bottom.linkTo(footer.top)
-            }
-        )
-
-        FooterSection(
-            buttonList = uiState.deviceAuthScreenModel?.footer?.buttonList,
-            modifier = Modifier.constrainAs(footer) {
-                bottom.linkTo(parent.bottom, margin = 16.dp)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            },
-            onClick = { onClick.invoke() }
-        )*/
     }
 }
