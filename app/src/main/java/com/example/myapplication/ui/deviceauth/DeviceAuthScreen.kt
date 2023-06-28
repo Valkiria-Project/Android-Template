@@ -6,11 +6,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.myapplication.ui.sections.FooterModelSection
 import com.example.myapplication.ui.sections.HeaderModelSection
 
 @Composable
 fun DeviceAuthScreen(
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     val myScreenViewModel = hiltViewModel<DeviceAuthViewModel>()
     val uiState = myScreenViewModel.uiState
@@ -27,6 +28,17 @@ fun DeviceAuthScreen(
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
             }
+        )
+
+        FooterModelSection(
+            leftButtonModel = uiState.deviceAuthScreenModel?.footerModel?.leftButtonModel,
+            rightButtonModel = uiState.deviceAuthScreenModel?.footerModel?.rightButtonModel,
+            modifier = Modifier.constrainAs(footer) {
+                bottom.linkTo(parent.bottom, margin = 16.dp)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            },
+            onClick = { onClick.invoke() }
         )
 
         /*BodySection(
