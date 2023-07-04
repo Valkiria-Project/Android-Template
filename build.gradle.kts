@@ -7,3 +7,12 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "11.0.0" apply false
     id("io.gitlab.arturbosch.detekt") version "1.17.0" apply false
 }
+
+task("clean") {
+    delete(rootProject.buildDir)
+}
+
+afterEvaluate {
+    // We install the hook at the first occasion
+    tasks["clean"].dependsOn("installGitHooks")
+}
