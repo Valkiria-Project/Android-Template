@@ -1,12 +1,10 @@
 package com.example.myapplication.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -36,7 +34,7 @@ fun ComposeApp(
             FetchScreen(
                 modifier = modifier,
                 onClick = { identifier ->
-                    navController.navigate("${NavigationRoute.MY_SCREEN_UI}/${identifier}")
+                    navController.navigate("${NavigationRoute.MY_SCREEN_UI}/$identifier")
                 }
             )
         }

@@ -4,6 +4,7 @@ import android.os.Parcelable
 import androidx.compose.ui.graphics.Color
 import kotlinx.parcelize.Parcelize
 
+@Suppress("MagicNumber")
 @Parcelize
 enum class ScreenType : Parcelable {
     APPROVED,

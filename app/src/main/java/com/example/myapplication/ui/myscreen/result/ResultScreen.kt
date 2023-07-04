@@ -10,9 +10,9 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.myapplication.ui.sections.body.BodySection
 import com.example.myapplication.ui.sections.FooterSection
 import com.example.myapplication.ui.sections.HeaderSection
+import com.example.myapplication.ui.sections.body.BodySection
 
 @Composable
 fun ResultScreen(
@@ -36,7 +36,7 @@ fun ResultScreen(
                 end.linkTo(parent.end)
             },
             color = uiState.myScreenModel?.type?.toColor() ?: Color.Black.copy(alpha = 0.9f),
-            fontWeight = FontWeight(600)
+            fontWeight = FontWeight.W600
         )
 
         HeaderSection(

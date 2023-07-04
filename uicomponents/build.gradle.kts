@@ -1,12 +1,14 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
     id("app.cash.paparazzi") version "1.3.0"
 }
 
 android {
     namespace = "com.example.uicomponents"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24

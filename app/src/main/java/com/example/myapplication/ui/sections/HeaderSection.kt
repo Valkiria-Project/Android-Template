@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.myapplication.R
+import com.example.myapplication.ui.theme.Green40
 import com.example.myapplication.ui.utlis.forwardingPainter
 
 @Composable
@@ -56,7 +57,7 @@ fun HeaderSection(
                     .weight(1f),
                 fontSize = 20.sp,
                 color = Color.Black.copy(alpha = 0.9f),
-                fontWeight = FontWeight(600)
+                fontWeight = FontWeight.W600
 //            fontFamily = FontFamily(Font(R.font.proxima nova)),
             )
             AsyncImage(
@@ -65,11 +66,11 @@ fun HeaderSection(
                 modifier = Modifier.size(56.dp),
                 placeholder = forwardingPainter(
                     painter = painterResource(R.drawable.ic_bag),
-                    colorFilter = ColorFilter.tint(Color(0xFF00A650)),
+                    colorFilter = ColorFilter.tint(Green40),
                 ),
                 error = forwardingPainter(
                     painter = painterResource(R.drawable.ic_bag),
-                    colorFilter = ColorFilter.tint(Color(0xFF00A650)),
+                    colorFilter = ColorFilter.tint(Green40),
                 ),
                 contentScale = ContentScale.FillBounds
             )

@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import com.example.myapplication.domain.myscreen.model.BodyRowModel
 import com.example.myapplication.domain.myscreen.model.CrossSellingModel
 import com.example.myapplication.domain.myscreen.model.MessageModel
-import com.example.myapplication.domain.myscreen.model.PaymentMethodInfoModel
 import com.example.myapplication.domain.myscreen.model.NestedBodyModel
+import com.example.myapplication.domain.myscreen.model.PaymentMethodInfoModel
 import com.example.uicomponents.payments.PaymentMethodInfo
 import timber.log.Timber
 

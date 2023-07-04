@@ -23,6 +23,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+const val OK_HTTP_CLIENT_TIMEOUT_DEFAULTS = 15_000L
+
 @Module
 @InstallIn(SingletonComponent::class)
 object CoreNetworkModule {
@@ -76,9 +78,9 @@ object CoreNetworkModule {
     internal fun providesOkHttpClientBuilder(
         loggingInterceptor: HttpLoggingInterceptor?
     ): OkHttpClient.Builder = OkHttpClient.Builder().apply {
-        connectTimeout(15_000L, TimeUnit.MILLISECONDS)
-        readTimeout(15_000L, TimeUnit.MILLISECONDS)
-        writeTimeout(15_000L, TimeUnit.MILLISECONDS)
+        connectTimeout(OK_HTTP_CLIENT_TIMEOUT_DEFAULTS, TimeUnit.MILLISECONDS)
+        readTimeout(OK_HTTP_CLIENT_TIMEOUT_DEFAULTS, TimeUnit.MILLISECONDS)
+        writeTimeout(OK_HTTP_CLIENT_TIMEOUT_DEFAULTS, TimeUnit.MILLISECONDS)
         loggingInterceptor?.also { addInterceptor(it) }
     }
 

@@ -37,7 +37,7 @@ fun NestedBodySection(
             modifier = Modifier.padding(top = 8.dp, start = 16.dp, bottom = 8.dp),
             color = Color.Black.copy(alpha = 0.9f),
             fontSize = 16.sp,
-            fontWeight = FontWeight(600),
+            fontWeight = FontWeight.W600,
         )
         Divider(
             thickness = 1.dp,
