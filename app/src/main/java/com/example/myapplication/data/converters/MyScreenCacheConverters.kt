@@ -6,9 +6,9 @@ import com.example.myapplication.domain.myscreen.model.BodyRowModel
 import com.example.myapplication.domain.myscreen.model.BodyRowType
 import com.example.myapplication.domain.myscreen.model.CrossSellingModel
 import com.example.myapplication.domain.myscreen.model.MessageModel
+import com.example.myapplication.domain.myscreen.model.NestedBodyModel
 import com.example.myapplication.domain.myscreen.model.PaymentMethodInfoModel
 import com.example.myapplication.domain.myscreen.model.ScreenType
-import com.example.myapplication.domain.myscreen.model.NestedBodyModel
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types

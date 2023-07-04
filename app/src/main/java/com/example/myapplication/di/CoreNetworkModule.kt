@@ -16,12 +16,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 const val OK_HTTP_CLIENT_TIMEOUT_DEFAULTS = 15_000L
 
@@ -33,12 +33,12 @@ object CoreNetworkModule {
     @Provides
     fun providesMoshi(): Moshi = Moshi.Builder()
         .add(
-            ScreenType::class.java, EnumJsonAdapter.create(ScreenType::class.java)
-                .withUnknownFallback(ScreenType.PROCESSING)
+            ScreenType::class.java,
+            EnumJsonAdapter.create(ScreenType::class.java).withUnknownFallback(ScreenType.PROCESSING)
         )
         .add(
-            BodyRowType::class.java, EnumJsonAdapter.create(BodyRowType::class.java)
-                .withUnknownFallback(null)
+            BodyRowType::class.java,
+            EnumJsonAdapter.create(BodyRowType::class.java).withUnknownFallback(null)
         )
         .add(
             PolymorphicJsonAdapterFactory.of(
