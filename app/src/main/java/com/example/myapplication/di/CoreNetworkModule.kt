@@ -34,7 +34,9 @@ object CoreNetworkModule {
     fun providesMoshi(): Moshi = Moshi.Builder()
         .add(
             ScreenType::class.java,
-            EnumJsonAdapter.create(ScreenType::class.java).withUnknownFallback(ScreenType.PROCESSING)
+            EnumJsonAdapter.create(ScreenType::class.java).withUnknownFallback(
+                ScreenType.PROCESSING
+            )
         )
         .add(
             BodyRowType::class.java,
@@ -87,7 +89,7 @@ object CoreNetworkModule {
     @Singleton
     @Provides
     internal fun providesOkHttpClient(
-        builder: OkHttpClient.Builder,
+        builder: OkHttpClient.Builder
     ): OkHttpClient = with(builder) {
         build()
     }
