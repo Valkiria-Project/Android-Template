@@ -8,6 +8,15 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.17.0" apply false
 }
 
+apply(from = "buildscripts/githooks.gradle")
+apply(from = "buildscripts/setup.gradle")
+
+subprojects {
+    apply(from = "../buildscripts/ktlint.gradle")
+    apply(from = "../buildscripts/detekt.gradle")
+    apply(from = "../buildscripts/versionsplugin.gradle")
+}
+
 task("clean") {
     delete(rootProject.buildDir)
 }
