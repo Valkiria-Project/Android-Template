@@ -23,7 +23,7 @@ class PaymentMethodInfoPaparazziTest {
                 amountPaid = 100.0,
                 discount = "50% OFF",
                 rawAmount = 100.0,
-                methodType = "Dinheiro em conta Mercado Pago"
+                methodType = "Dinheiro em conta Mercado Pagosadassdasad"
             )
         }
     }
